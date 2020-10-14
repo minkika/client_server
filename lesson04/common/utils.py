@@ -1,10 +1,11 @@
 """Утилиты"""
+
 import argparse
 import json
 import sys
 from time import time
 
-from variables import DEFAULT_IP_ADDRESS, DEFAULT_PORT, DICT_ANSWER_CODE, ENCODING, NON_PRESENCE, PRESENCE
+from common.variables import DEFAULT_IP_ADDRESS, DEFAULT_PORT, DICT_ANSWER_CODE, ENCODING, PRESENCE
 
 
 def print_error(message=''):
@@ -40,17 +41,6 @@ class PresenceMessage(Message):
         _pr = super().serialize()
         _pr['user'] = self.user
         return _pr
-
-
-# class NonPresenceMessage(Message):
-#     def __init__(self, user=None):
-#         super().__init__(action=NON_PRESENCE)
-#         self.user = user
-#
-#     def serialize(self):
-#         _pr = super().serialize()
-#         _pr['user'] = self.user
-#         return _pr
 
 
 class Response:
