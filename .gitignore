@@ -9,3 +9,7 @@ lesson03/common/__pycache__/
 lesson04/unit_tests/__pycache__/
 lesson04/common/__pycache__/
 lesson04/__pycache__/
+lesson05/common/__pycache__/
+lesson05/log/__pycache__/
+lesson05/log/server_log_files/
+lesson05/log/client_log_files/
