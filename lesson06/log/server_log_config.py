@@ -16,7 +16,6 @@ FORMATTER = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 LOG_FILE = logging.handlers.TimedRotatingFileHandler(LOG_PATH, encoding='utf8', interval=1, when='D')
 LOG_FILE.setFormatter(FORMATTER)
 
-LOG_FILE.setLevel(LOGGING_LEVEL)
 LOG.addHandler(LOG_FILE)
 LOG.setLevel(LOGGING_LEVEL)
 #
