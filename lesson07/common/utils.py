@@ -5,7 +5,8 @@ import json
 from time import time
 
 from common.decorators import log_de
-from common.variables import DEFAULT_CLIENT_ID, DEFAULT_IP_ADDRESS, DEFAULT_PORT, DICT_ANSWER_CODE, ENCODING, PRESENCE
+from common.variables import CHAT, DEFAULT_CLIENT_ID, DEFAULT_IP_ADDRESS, DEFAULT_PORT, DICT_ANSWER_CODE, ENCODING, \
+    PRESENCE
 
 
 # def print_error(message=''):
@@ -42,6 +43,19 @@ class PresenceMessage(Message):
         return _pr
 
 
+class ChatMessage(Message):
+    def __init__(self, user=None, text=None):
+        super().__init__(action=CHAT)
+        self.user = user
+        self.text = text
+
+    def serialize(self):
+        _pr = super().serialize()
+        _pr['user'] = self.user
+        _pr['text'] = self.text
+        return _pr
+
+
 class Response:
     def __init__(self, response):
         self.response = response
@@ -68,7 +82,7 @@ class Response:
         return encoded_message
 
 
-def create_parser():
+def create_arguments_parser():
     parser = argparse.ArgumentParser(description='Укажите адрес и порт')
     parser.add_argument('-a', '--addr', default=DEFAULT_IP_ADDRESS, help='IP адрес')
     parser.add_argument('-p', '--port', type=int, default=DEFAULT_PORT, help='Порт (от 1024 до 65535)')
