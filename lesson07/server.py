@@ -3,9 +3,10 @@ import json
 import logging
 import select
 from socket import AF_INET, SOCK_STREAM, socket
+
+from common.decorators import log_de
 from common.utils import create_arguments_parser
 from common.variables import ENCODING, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH
-from common.decorators import log_de
 
 RESPONSE_ERROR = 400
 RESPONSE_OK = 200

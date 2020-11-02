@@ -1,13 +1,10 @@
 """Программа-клиент"""
-import random
-import time
+import logging
 from socket import AF_INET, SOCK_STREAM, socket
 
+from common.decorators import log_de
 from common.utils import ChatMessage, create_arguments_parser, PresenceMessage
 from common.variables import ENCODING, MAX_PACKAGE_LENGTH
-from common.decorators import log_de
-
-import logging
 
 CLIENT_LOGGER = logging.getLogger('client')
 
